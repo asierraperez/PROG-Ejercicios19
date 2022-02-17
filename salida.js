@@ -1,10 +1,16 @@
-function salida(salida_heroe_muerto, salida_nordico, salida_enemigo, salida_vida_original, salida_ataque_original) {
+function salida(evt, salida_heroe_muerto, enemigo_muerto, salida_nordico, salida_enemigo, salida_vida_original, salida_ataque_original, salida_boton_ataque) {
     var aux_vida = salida_vida_original
     var aux_ataque = salida_ataque_original
-    if (!salida_heroe_muerto) {
-        alert("Ganaste el combate\n" +
-            salida_nordico.get_nombre + "\n" +
-            "Experiencia ganada " + salida_enemigo.get_nivel + "\n")
+    if (enemigo_muerto) {
+
+        var nuevo_parrafo1 = document.createElement("div")
+        var texto_ganar = salida_nordico.get_nombre + " Ganó el combate\n" +
+            "Experiencia ganada; " + salida_enemigo.get_nivel
+        nuevo_parrafo1.innerText = texto_ganar
+        document.getElementsByClassName("heroe")[0].appendChild(nuevo_parrafo1)
+        // alert("Ganaste el combate\n" +
+        //    salida_nordico.get_nombre + "\n" +
+        //    "Experiencia ganada " + salida_enemigo.get_nivel + "\n")
         var sube_nivel = salida_nordico.control_nivel(salida_enemigo.get_nivel)
         $("#experiencia_heroe").html(salida_nordico.experiencia)
         if (sube_nivel) {
@@ -14,18 +20,36 @@ function salida(salida_heroe_muerto, salida_nordico, salida_enemigo, salida_vida
             salida_nordico.set_vida = aux_vida
             salida_nordico.set_ataque = aux_ataque
 
-            alert(salida_nordico.get_nombre + " sube de nivel\n" +
-                "Experiencia actual " + salida_nordico.get_xp + "\n" +
-                "Nivel actual " + salida_nordico.get_nivel + "\n" +
-                "Vida actual " + salida_nordico.get_vida + "\n" +
-                "Ataque actual " + salida_nordico.get_ataque + "\n")
+            var sube_nivel_html = document.createElement("div")
+            var texto = salida_nordico.get_nombre + " sube de nivel\n" +
+                "Experiencia actual: " + salida_nordico.get_xp + "\n" +
+                "Nivel actual: " + salida_nordico.get_nivel + "\n" +
+                "Vida actual: " + salida_nordico.get_vida + "\n" +
+                "Ataque actual: " + salida_nordico.get_ataque + "\n"
+
+            sube_nivel_html.innerText = texto
+            document.getElementsByClassName("heroe")[0].appendChild(sube_nivel_html)
+
+
         }
+        var boton_aceptar = document.createElement("button")
+        boton_aceptar.innerText = "Aceptar"
+        document.getElementsByClassName("heroe")[0].appendChild(boton_aceptar)
+        boton_aceptar.addEventListener("click", () => {
+            var heroe_html = document.getElementsByClassName("heroe")
+            if (sube_nivel) {
+                heroe_html[0].removeChild(sube_nivel_html)
+            }
+
+            heroe_html[0].removeChild(nuevo_parrafo1)
+            heroe_html[0].removeChild(boton_aceptar)
+        })
         $("#nivel_heroe").html(salida_nordico.nivel)
         $("#experiencia_heroe").html(salida_nordico.experiencia)
         $("#salud_heroe").html(salida_nordico.vida + "/" + aux_vida)
 
-    } else {
-        alert("Perdiste el combate y " + salida_nordico.get_nombre + " murió")
+    } else if (salida_heroe_muerto) {
+        //alert("Perdiste el combate y " + salida_nordico.get_nombre + " murió")
         $("#salud_heroe").html(salida_nordico.vida + "/" + aux_vida)
     }
 
