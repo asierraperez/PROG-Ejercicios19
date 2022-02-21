@@ -1,10 +1,12 @@
 function personaje() {
     class personaje {
-        constructor(vida, ataque, nombre, nivel) {
+        constructor(vida, ataque, nombre, nivel, defensa, isDefendiendo) {
             this.vida = vida
             this.ataque = ataque
             this.nombre = nombre
             this.nivel = nivel
+            this.defensa = defensa
+            this.isDefendiendo = isDefendiendo
         }
 
         get get_vida() {
@@ -18,6 +20,12 @@ function personaje() {
         }
         get get_nivel() {
             return this.nivel
+        }
+        get get_defensa() {
+            return this.defensa
+        }
+        get get_isDefendiendo() {
+            return this.isDefendiendo
         }
 
         set set_vida(aux_vida) {
@@ -33,9 +41,19 @@ function personaje() {
         set set_nivel(aux_nivel) {
             this.nivel = aux_nivel
         }
+        set set_defensa(aux_defensa) {
+            this.defensa = aux_defensa
+        }
+        set set_isDefendiendo(aux_isDefendiendo) {
+            this.isDefendiendo = aux_isDefendiendo
+        }
 
         damage_recibido(damage) {
-            this.vida = this.vida - damage
+            if (this.isDefendiendo) {
+                this.vida = this.vida - (damage - this.defensa)
+            } else {
+                this.vida = this.vida - damage
+            }
             return this.vida
         }
         comprueba_muerto() {

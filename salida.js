@@ -56,7 +56,17 @@ function salida(evt, salida_heroe_muerto, enemigo_muerto, salida_nordico, salida
             "Pulas F5 para volver a empezar"
         parrafo_muerte.innerText = texto_muerte
         document.getElementsByClassName("heroe")[0].appendChild(parrafo_muerte)
+        var boton_aceptar = document.createElement("button")
+        boton_aceptar.innerText = "Aceptar"
+        document.getElementsByClassName("heroe")[0].appendChild(boton_aceptar)
+        boton_aceptar.addEventListener("click", () => {
+            var heroe_html = document.getElementsByClassName("heroe")
+            heroe_html[0].removeChild(parrafo_muerte)
+            heroe_html[0].removeChild(boton_aceptar)
+        })
+
         salida_boton_siguiente.disabled = true
+
     }
 
     return salida_nordico

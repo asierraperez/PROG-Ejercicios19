@@ -1,7 +1,7 @@
 function heroe(aux_personaje) {
     class heroe extends aux_personaje {
-        constructor(vida, ataque, nombre, nivel, experiencia) {
-            super(vida, ataque, nombre, nivel)
+        constructor(vida, ataque, nombre, nivel, experiencia, defensa, isDefendiendo) {
+            super(vida, ataque, nombre, nivel, defensa, isDefendiendo)
             this.experiencia = experiencia
 
         }
