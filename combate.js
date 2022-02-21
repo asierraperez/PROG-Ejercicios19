@@ -1,28 +1,19 @@
-function combate(evt, bueno, contrincante, vida_original, ataque_original, vida_contrincante, comb_boton_ataque, btn_siguiente) {
-    var aux_bueno_muerto = false
-    var aux_vida_enemigo = vida_contrincante
+function ataca_nordico(evt, h_atq_heroe, h_atq_enemigo, vida_contrincante) {
+    var h_aux_heroe = h_atq_heroe
+    var h_aux_enemigo = h_atq_enemigo
 
+    h_aux_enemigo.damage_recibido(h_aux_heroe.get_ataque)
+    $("#salud_enemigo").html(h_aux_enemigo.get_vida + "/" + vida_contrincante)
 
+    return h_aux_enemigo
+}
 
-    $("#nivel_enemigo").html(contrincante.get_nivel)
-    $("#salud_enemigo").html(contrincante.get_vida + "/" + aux_vida_enemigo)
+function ataca_enemigo(evt, e_atq_heroe, e_atq_enemigo, vida_heroe) {
+    var e_aux_heroe = e_atq_heroe
+    var e_aux_enemigo = e_atq_enemigo
+    e_aux_heroe.damage_recibido(e_aux_enemigo.get_ataque)
+    $("#salud_heroe").html(e_aux_heroe.get_vida + "/" + vida_heroe)
 
-    contrincante.damage_recibido(bueno.get_ataque)
-    $("#salud_enemigo").html(contrincante.get_vida + "/" + aux_vida_enemigo)
-    contrincante_muerto = contrincante.comprueba_muerto()
+    return e_aux_heroe
 
-    if (contrincante_muerto) {
-        comb_boton_ataque.disabled = true
-
-        bueno = salida(evt, aux_bueno_muerto, contrincante_muerto, bueno, contrincante, vida_original, ataque_original, comb_boton_ataque)
-        contrincante_muerto = false
-        btn_siguiente.disabled = false
-
-    } else {
-        bueno.damage_recibido(contrincante.get_ataque)
-        $("#salud_heroe").html(bueno.get_vida + "/" + vida_original)
-        aux_bueno_muerto = bueno.comprueba_muerto()
-
-    }
-    return bueno
 }
