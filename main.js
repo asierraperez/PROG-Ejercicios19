@@ -2,7 +2,7 @@ function main() {
 
     preload()
 
-    $("#pelea").css({ "display": "flex", "flex-direction": "row", "flex-wrap": "wrap" })
+    $("#pelea").css({ "display": "flex", "flex-direction": "row", "flex-wrap": "wrap", "max-width": "fit-content" })
     $("#opciones").css({ "display": "flex", "flex-direction": "row", "flex-wrap": "wrap", "margin-right": "15px" })
     $(".heroe").css({ "font-size": "16pt", "text-align": "center", "padding": "10px" })
     $(".enemigo").css({ "font-size": "16pt", "color": "red", "border-style": "solid", "border-color": "black", "padding": "10px" })
@@ -36,6 +36,7 @@ function main() {
     var radio = document.getElementsByClassName("tamTexto")
     var radio_color = document.getElementsByClassName("cambioColor")
     var anotacion = document.getElementById("notas")
+    var radio_color_fondo = document.getElementsByClassName("cambioColorFondo")
 
     nombre_html.innerHTML = aux_nordico.get_nombre
     boton_ataque.disabled = true
@@ -56,6 +57,12 @@ function main() {
     anotacion.addEventListener("keyup", (evento) => {
         guardar_anotacion(evento)
     })
+
+    for (var i = 0; i < radio_color_fondo.length; i++) {
+        radio_color_fondo[i].addEventListener("click", (event) => {
+            cambia_color_fondo(event);
+        });
+    }
 
 
     boton_siguiente.addEventListener("click", () => {
