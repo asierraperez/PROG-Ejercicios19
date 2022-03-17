@@ -1,5 +1,7 @@
 function main() {
 
+    preload()
+
     $("body").css({ "display": "flex", "flex-direction": "row", "flex-wrap": "wrap" })
     $(".heroe").css({ "font-size": "16pt", "color": "blue", "text-align": "center", "padding": "10px" })
     $(".enemigo").css({ "font-size": "16pt", "color": "red", "border-style": "solid", "border-color": "black", "padding": "10px" })
@@ -30,11 +32,18 @@ function main() {
     var nombre_html = document.getElementById("nombre_heroe")
     var boton_siguiente = document.getElementById("siguiente")
     var boton_defensa = document.getElementById("btn_defensa")
-
+    var radio = document.getElementsByClassName("tamTexto")
 
     nombre_html.innerHTML = aux_nordico.get_nombre
     boton_ataque.disabled = true
     boton_defensa.disabled = true
+
+    for (var i = 0; i < radio.length; i++) {
+        radio[i].addEventListener("click", (event) => {
+            cambiaTexto(event);
+        });
+    }
+
 
     boton_siguiente.addEventListener("click", () => {
         if (repetir) {
