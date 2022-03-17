@@ -3,6 +3,7 @@ function preload() {
     var heroe = document.getElementsByClassName("heroe")
     var tamFuente = localStorage.getItem("tamFuente");
     var colorFuente = localStorage.getItem("cambioColor")
+    var notas = localStorage.getItem("notas")
 
     cuerpo.style.fontSize = tamFuente;
     for (let i = 0; i < heroe.length; i++) {
@@ -24,4 +25,6 @@ function preload() {
             radio_color[i].checked = false;
         }
     }
+    document.getElementById("notas").value = notas
+
 }

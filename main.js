@@ -35,6 +35,7 @@ function main() {
     var boton_defensa = document.getElementById("btn_defensa")
     var radio = document.getElementsByClassName("tamTexto")
     var radio_color = document.getElementsByClassName("cambioColor")
+    var anotacion = document.getElementById("notas")
 
     nombre_html.innerHTML = aux_nordico.get_nombre
     boton_ataque.disabled = true
@@ -51,6 +52,10 @@ function main() {
             cambia_color(event);
         });
     }
+
+    anotacion.addEventListener("keyup", (evento) => {
+        guardar_anotacion(evento)
+    })
 
 
     boton_siguiente.addEventListener("click", () => {
