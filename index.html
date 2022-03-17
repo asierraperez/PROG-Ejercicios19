@@ -6,47 +6,66 @@
 </head>
 
 <body id="cuerpo">
-    <div class="heroe">
-        <h1 id="nombre_heroe">Heroe</h1>
-        <h3>
-            Nivel:
-            <lvl id="nivel_heroe">-1</lvl>
-        </h3>
-        <h3>
-            Experiencia:
-            <exp id="experiencia_heroe">-1</exp>
-        </h3>
-        <h3>
-            Salud:
-            <hp id="salud_heroe">-1</hp>
-        </h3>
+    <section id="pelea">
+        <div class="heroe">
+            <h1 id="nombre_heroe">Heroe</h1>
+            <h3>
+                Nivel:
+                <lvl id="nivel_heroe">-1</lvl>
+            </h3>
+            <h3>
+                Experiencia:
+                <exp id="experiencia_heroe">-1</exp>
+            </h3>
+            <h3>
+                Salud:
+                <hp id="salud_heroe">-1</hp>
+            </h3>
 
-        <button id="btn_ataque">Atacar</button>
-        <button id="btn_defensa">Defensa</button>
+            <button id="btn_ataque">Atacar</button>
+            <button id="btn_defensa">Defensa</button>
 
-    </div>
+        </div>
 
-    <div class="enemigo">
-        <h1 id="nombre_enemigo">Enemigo</h1>
-        <h3>
-            Nivel:
-            <lvl id="nivel_enemigo">-1</lvl>
-        </h3>
-        <h3>
-            Salud:
-            <hp id="salud_enemigo">-1</hp>
-        </h3>
-        <button id="siguiente">Siguiente Enemigo</button>
-    </div>
+        <div class="enemigo">
+            <h1 id="nombre_enemigo">Enemigo</h1>
+            <h3>
+                Nivel:
+                <lvl id="nivel_enemigo">-1</lvl>
+            </h3>
+            <h3>
+                Salud:
+                <hp id="salud_enemigo">-1</hp>
+            </h3>
+            <button id="siguiente">Siguiente Enemigo</button>
+        </div>
+    </section>
 
-    <input type="radio" name="tamTexto" class="tamTexto" value="16px">16px
-    <br>
-    <input type="radio" name="tamTexto" class="tamTexto" value="20px">20px
+    <section id="opciones">
+        <div style="margin-right: 15px;">
+            <div>Tamaño de texto</div>
+            <input type="radio" name="tamTexto" class="tamTexto" value="16px">16px
+            <br>
+            <input type="radio" name="tamTexto" class="tamTexto" value="20px">20px
+        </div>
+        <div style="margin-right: 15px;">
+            <div>Color del heroe</div>
+            <input type="radio" name="cambioColor" class="cambioColor" value="blue">Azul
+            <br>
+            <input type="radio" name="cambioColor" class="cambioColor" value="green">Verde
+            <br>
+            <input type="radio" name="cambioColor" class="cambioColor" value="pink">Rosa
+            <br>
+            <input type="radio" name="cambioColor" class="cambioColor" value="yellow">Amarillo
+        </div>
+    </section>
+
 
 
 
     <script src="preload.js"></script>
     <script src="cambiar_texto.js"></script>
+    <script src="cambiar_color.js"></script>
     <script src="confirmar.js"></script>
     <script src="entrada.js"></script>
     <script src="salida.js"></script>

@@ -2,8 +2,9 @@ function main() {
 
     preload()
 
-    $("body").css({ "display": "flex", "flex-direction": "row", "flex-wrap": "wrap" })
-    $(".heroe").css({ "font-size": "16pt", "color": "blue", "text-align": "center", "padding": "10px" })
+    $("#pelea").css({ "display": "flex", "flex-direction": "row", "flex-wrap": "wrap" })
+    $("#opciones").css({ "display": "flex", "flex-direction": "row", "flex-wrap": "wrap", "margin-right": "15px" })
+    $(".heroe").css({ "font-size": "16pt", "text-align": "center", "padding": "10px" })
     $(".enemigo").css({ "font-size": "16pt", "color": "red", "border-style": "solid", "border-color": "black", "padding": "10px" })
 
 
@@ -33,6 +34,7 @@ function main() {
     var boton_siguiente = document.getElementById("siguiente")
     var boton_defensa = document.getElementById("btn_defensa")
     var radio = document.getElementsByClassName("tamTexto")
+    var radio_color = document.getElementsByClassName("cambioColor")
 
     nombre_html.innerHTML = aux_nordico.get_nombre
     boton_ataque.disabled = true
@@ -41,6 +43,12 @@ function main() {
     for (var i = 0; i < radio.length; i++) {
         radio[i].addEventListener("click", (event) => {
             cambiaTexto(event);
+        });
+    }
+
+    for (var i = 0; i < radio_color.length; i++) {
+        radio_color[i].addEventListener("click", (event) => {
+            cambia_color(event);
         });
     }
 
