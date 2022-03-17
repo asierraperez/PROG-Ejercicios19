@@ -37,6 +37,7 @@ function main() {
     var radio_color = document.getElementsByClassName("cambioColor")
     var anotacion = document.getElementById("notas")
     var radio_color_fondo = document.getElementsByClassName("cambioColorFondo")
+    var boton_reset = document.getElementById("btn_reset")
 
     nombre_html.innerHTML = aux_nordico.get_nombre
     boton_ataque.disabled = true
@@ -63,6 +64,9 @@ function main() {
             cambia_color_fondo(event);
         });
     }
+    boton_reset.addEventListener("click", (evento) => {
+        localStorage.clear()
+    })
 
 
     boton_siguiente.addEventListener("click", () => {

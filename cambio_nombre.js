@@ -1,5 +1,5 @@
 function cambio_nombre() {
-    var existe_nombre = document.getElementById("nombre_heroe").innerHTML != "Heroe"
+    var existe_nombre = localStorage.getItem("nombre_heroe") != undefined
     if (!existe_nombre) {
         var nombre_personaje = entrada("Ponle un nombre a tu héroe")
         localStorage.setItem("nombre_heroe", nombre_personaje)
