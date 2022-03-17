@@ -12,10 +12,10 @@ function main() {
     var enemigos = enemigo(personajes)
     var heroes = heroe(personajes)
 
-    var nombre_personaje = entrada("Ponle un nombre a tu héroe")
+    var nombre = cambio_nombre()
     var nivel = entrada("A que nivel quieres que empiece tu heroe")
 
-    var nordico = new heroes(300, 50, nombre_personaje, nivel, 5, 15, false)
+    var nordico = new heroes(300, 50, nombre, nivel, 5, 15, false)
     var aux_nordico = nordico
 
     var aux_enemigo
