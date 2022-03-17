@@ -38,6 +38,7 @@ function main() {
     var anotacion = document.getElementById("notas")
     var radio_color_fondo = document.getElementsByClassName("cambioColorFondo")
     var boton_reset = document.getElementById("btn_reset")
+    var check_estilo = document.getElementsByClassName("cambioEstilo")
 
     nombre_html.innerHTML = aux_nordico.get_nombre
     boton_ataque.disabled = true
@@ -64,9 +65,16 @@ function main() {
             cambia_color_fondo(event);
         });
     }
+
     boton_reset.addEventListener("click", (evento) => {
         localStorage.clear()
     })
+
+    for (var i = 0; i < check_estilo.length; i++) {
+        check_estilo[i].addEventListener("change", (event) => {
+            cambia_estilo(event, check_estilo[i]);
+        });
+    }
 
 
     boton_siguiente.addEventListener("click", () => {

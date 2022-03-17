@@ -6,6 +6,8 @@ function preload() {
     var notas = localStorage.getItem("notas")
     var nombre = localStorage.getItem("nombre_personaje")
     var color_fondo = localStorage.getItem("cambioColorFondo")
+    var negrita = localStorage.getItem("negrita")
+    var cursiva = localStorage.getItem("cursiva")
 
     cuerpo.style.fontSize = tamFuente;
     for (let i = 0; i < heroe.length; i++) {
@@ -40,6 +42,20 @@ function preload() {
         } else {
             radio_color_fondo[i].checked = false;
         }
+    }
+
+    var check_estilo = document.getElementsByClassName("cambioEstilo")
+    for (let i = 0; i < check_estilo.length; i++) {
+        if (negrita == check_estilo[i].value) {
+            check_estilo[i].checked = true
+            cuerpo.style.fontWeight = negrita
+        }
+        if (cursiva == check_estilo[i].value) {
+            check_estilo[i].checked = true
+            cuerpo.style.fontStyle = cursiva
+
+        }
+
     }
 
 
